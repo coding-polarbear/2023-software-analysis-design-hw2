@@ -1,5 +1,6 @@
 package problem4;
 
+import problem1.LogLevel;
 import problem1.SimpleLogger;
 import problem2.factory.CarPartsFactory;
 import problem3.Builder;
@@ -22,7 +23,8 @@ public class LoggingBuilderProxyDecorator extends BaseBuilderProxyDecorator {
 
     @Override
     public Car getCar() {
-        return null;
+        SimpleLogger.getInstance().log(LogLevel.INFO, "Building a car is completed!");
+        return super.getCar();
     }
 }
 /**

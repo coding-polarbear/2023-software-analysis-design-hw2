@@ -8,38 +8,51 @@ import problem2.factory.CarPartsFactory;
  * If necessary, you can make your own methods or classes so that the corresponding tests are passed
  */
 public class CarBuilder implements Builder{
-    public CarBuilder(CarPartsFactory factory) {
+    private Car car;
+    private CarPartsFactory factory;
 
+    public CarBuilder(CarPartsFactory factory) {
+        this.factory = factory;
+        this.car = new Car();
+        car.setCompanyName(factory.getCompanyName());
     }
 
     @Override
     public Builder addDoors(int numDoors) {
-        return null;
+        for(int i = 0; i < numDoors; i++) {
+            car.addDoor(factory.createDoor());
+        }
+        return this;
     }
 
     @Override
     public Builder addWheels(int numWheels) {
-        return null;
+        for(int i = 0; i < numWheels; i++) {
+            car.addWheel(factory.createWheel());
+        }
+        return this;
     }
 
     @Override
     public Builder setRoof() {
-        return null;
+        car.setRoof(factory.createRoof());
+        return this;
     }
 
     @Override
     public Builder setColor(Color color) {
-        return null;
+        car.setColor(color);
+        return this;
     }
 
     @Override
     public Car getCar() {
-        return null;
+        return car;
     }
 
     @Override
     public void reset() {
-
+        this.car = new Car();
     }
 }
 /**

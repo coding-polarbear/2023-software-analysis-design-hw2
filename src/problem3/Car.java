@@ -16,14 +16,13 @@ import java.util.List;
 public class Car {
     private List<Door> doors;
     private List<Wheel> wheels;
-    private List<Roof> roofs;
+    private Roof roof;
     private Color color;
     private CompanyName companyName;
 
     public Car() {
         this.doors = new ArrayList<>();
         this.wheels = new ArrayList<>();
-        this.roofs = new ArrayList<>();
         this.color = Color.BLACK;
     }
 
@@ -36,7 +35,7 @@ public class Car {
     }
 
     public int numRoofs() {
-        return roofs.size();
+        return 1;
     }
 
     public Color getColor() {
@@ -52,11 +51,7 @@ public class Car {
     }
 
     public void setRoof(Roof roof) {
-        if(roofs.isEmpty()) {
-            roofs.add(roof);
-        } else {
-            roofs.set(0, roof);
-        }
+        this.roof = roof;
     }
 
     public void setColor(Color color) {
@@ -80,7 +75,7 @@ public class Car {
     }
 
     public Roof getRoof() {
-        return roofs.get(0);
+        return roof;
     }
 }
 /**
